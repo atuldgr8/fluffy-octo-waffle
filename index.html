@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Map · Extend · Panoramic — Design Assessment</title>
+<style>
+  :root { --bg:#111; --fg:#f2f2f2; --mute:#9a9a9a; --acc:#d8f36b; --acc2:#b79cff; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; line-height:1.55; }
+  nav { position:fixed; top:0; left:0; right:0; padding:14px 24px; background:rgba(17,17,17,.9); display:flex; gap:20px; font-size:14px; z-index:5; }
+  nav a { color:var(--mute); text-decoration:none; } nav a:hover { color:var(--acc); }
+  section { min-height:100vh; padding:110px 8vw 60px; display:flex; flex-direction:column; justify-content:center; border-bottom:1px solid #222; }
+  .tag { color:var(--acc); font-size:14px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:14px; }
+  h1 { font-size:clamp(40px,8vw,96px); margin:0 0 16px; line-height:1.05; }
+  h2 { font-size:clamp(26px,4vw,46px); margin:0 0 20px; line-height:1.2; }
+  p { max-width:60ch; font-size:19px; }
+  .big { font-size:clamp(24px,3.4vw,40px); max-width:30ch; line-height:1.3; font-weight:600; }
+  .words { display:flex; gap:40px; flex-wrap:wrap; margin-top:20px; }
+  .words div span { display:block; color:var(--acc); font-size:14px; }
+  .words div b { font-size:clamp(32px,5vw,60px); }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; margin-top:20px; max-width:1000px; }
+  .card { border:1px solid var(--acc); border-radius:18px; padding:22px; }
+  .card.note { border-color:var(--acc2); }
+  .mute { color:var(--mute); font-size:14px; }
+  .edit { color:var(--acc2); }
+  .tree { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:24px; max-width:1000px; margin-top:10px; }
+  .tree h3 { margin:0 0 6px; color:var(--acc); font-size:16px; }
+  .hl { color:var(--acc2); font-weight:600; }
+  ol { max-width:60ch; font-size:19px; padding-left:22px; }
+</style>
+</head>
+<body>
+<nav><a href="#words">Define</a><a href="#problem">Problem</a><a href="#design">Design</a><a href="#deliver">Deliver</a></nav>
+
+<section id="top">
+  <div class="tag">Design assessment</div>
+  <h1>Feeling time<br>pass.</h1>
+  <p>Working title. <span class="edit">[EDIT: your name · email]</span></p>
+  <div class="words">
+    <div><span>Noun</span><b>Map</b></div>
+    <div><span>Verb</span><b>Extend</b></div>
+    <div><span>Adjective</span><b>Panoramic</b></div>
+  </div>
+</section>
+
+<section id="words">
+  <div class="tag">Define · the three words</div>
+  <h2>What the words made me think of</h2>
+  <div class="tree">
+    <div><h3>Map</h3>shape · route · trace · plan · territory</div>
+    <div><h3>Extend</h3>stretch · add · reach beyond · a new sense</div>
+    <div><h3>Panoramic</h3>whole · wide · peripheral · all at once</div>
+  </div>
+  <p style="margin-top:28px">The ideas that pulled together: <span class="hl">a shape</span>, <span class="hl">something we don't naturally sense</span>, <span class="hl">the whole of it at once</span>. That led me to <b>seeing the whole of a day.</b></p>
+</section>
+
+<section id="intent">
+  <div class="tag">Define · intent</div>
+  <p class="big">Design something that helps people feel how much time has passed, and how much is left, while they're deep in a task, without having to stop and check a clock.</p>
+</section>
+
+<section id="origin">
+  <div class="tag">Define · where this came from</div>
+  <h2>It wasn't laziness. It was invisible.</h2>
+  <p class="edit">[EDIT: 3–4 lines in your own words. One real moment of losing time. Example: "I sat down to work for 'a few minutes.' When I looked up, the afternoon was gone. Nothing interrupted me. I just never felt it pass."]</p>
+</section>
+
+<section id="problem">
+  <div class="tag">Define · the phenomenon</div>
+  <h2>Time passes silently while we're absorbed.<br>We only find out when we look. By then it's late.</h2>
+  <div class="cards">
+    <div class="card"><b>Timing differences in ADHD are consistent.</b><br>A meta-analysis of 55 studies found broad timing deficits across timing tasks.<div class="mute">Marx et al., 2021, J. Am. Acad. Child &amp; Adolescent Psychiatry</div></div>
+    <div class="card"><b>Students misjudge how long tasks take.</b><br>Time estimation bias is documented in college students' academic work.<div class="mute">Brady, Wolters &amp; Yu, 2022, Frontiers in Psychology</div></div>
+    <div class="card note"><b>An honest note.</b><br>Lab tasks measure seconds. Losing hours is the everyday extension of the same pattern, and adult studies are still few.</div>
+  </div>
+</section>
+
+<section id="gap">
+  <div class="tag">Define · the gap</div>
+  <ol>
+    <li>Clocks, timers and calendars all work.</li>
+    <li>But each needs you to remember to look.</li>
+    <li>Looking is least likely exactly when you're most absorbed.</li>
+  </ol>
+  <p class="mute">Existing tools I looked at: visual timers (Time Timer), visual planners (Tiimo), haptic time wearables (research prototypes and concept designs). <span class="edit">[EDIT: add what each does not do.]</span></p>
+</section>
+
+<section id="user">
+  <div class="tag">Define · who it's for</div>
+  <h2>Students and young professionals who lose track of time. ADHD is the sharpest case.</h2>
+  <div class="cards">
+    <div class="card"><span class="edit">[EDIT: persona — name, age, one line of context]</span></div>
+    <div class="card note"><b>Assumption</b><br>Existing tools fail because they need a conscious glance.</div>
+  </div>
+</section>
+
+<section id="statement">
+  <div class="tag">Define · problem statement</div>
+  <p class="big">How might people feel time passing while they're absorbed, so they notice drift before it costs them?</p>
+</section>
+
+<section id="design">
+  <div class="tag">Design</div>
+  <h2>In progress.</h2>
+  <p class="edit">[EDIT: concept, system and the design rationale go here.]</p>
+</section>
+
+<section id="deliver">
+  <div class="tag">Deliver</div>
+  <h2>In progress.</h2>
+  <p class="edit">[EDIT: one critical flow in high-fidelity UI goes here.]</p>
+</section>
+</body>
+</html>
