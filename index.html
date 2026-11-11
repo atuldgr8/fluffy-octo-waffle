@@ -90,8 +90,7 @@ p{margin:0;max-width:60ch}
 .hmw p.q{font-family:var(--display);font-weight:900;font-size:clamp(24px,2.5vw,32px);line-height:1.14;letter-spacing:-0.02em}
 
 /* 4 */
-.finding{display:grid;grid-template-columns:46px minmax(0,1fr);gap:2px 16px;align-items:start}
-.finding .badge{grid-row:1/4}
+.finding{display:flex;flex-direction:column;gap:4px}
 .finding h3{font-size:20px}
 .takeaway{font-family:var(--display);font-weight:900;font-size:clamp(24px,2.8vw,36px);line-height:1.12;letter-spacing:-0.025em;color:var(--tomato);max-width:32ch}
 .colh{display:flex;align-items:center;gap:12px}
@@ -117,9 +116,10 @@ p{margin:0;max-width:60ch}
 .prodgrid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:center}
 @media (max-width:980px){.prodgrid{grid-template-columns:minmax(0,1fr)}}
 .shots{position:relative;margin-bottom:22px}
-.shots .big{border-radius:24px;width:100%}
+.shots .big{border-radius:24px;width:100%;aspect-ratio:16/9;object-fit:cover}
 .shots .inset{position:absolute;right:14px;bottom:-22px;width:42%;border-radius:18px;border:5px solid var(--paper)}
 .note{display:flex;gap:12px;align-items:center;font-size:15px;color:var(--ink-soft)}
+.tagline{font-family:var(--display);font-weight:900;font-size:clamp(24px,2.5vw,32px);line-height:1.12;letter-spacing:-0.02em;color:var(--tomato);max-width:22ch}
 .gtable{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:6px 22px}
 .grow{display:grid;grid-template-columns:100px minmax(0,1fr);gap:16px;align-items:center;padding:14px 0}
 .grow+.grow{border-top:1px solid var(--line)}
@@ -142,7 +142,36 @@ p{margin:0;max-width:60ch}
 .layers .stack{gap:12px}
 @media (max-width:860px){.layers{grid-template-columns:minmax(0,1fr)}}
 
+/* 8 score */
+.score{display:grid;grid-template-columns:118px minmax(150px,1.6fr) 4fr 2.4fr minmax(150px,1.6fr);gap:6px;align-items:stretch}
+.score .ph{border-radius:20px;padding:16px 18px;color:#fff;min-height:128px;display:flex;flex-direction:column;justify-content:space-between;gap:10px}
+.score .ph .ic{width:28px;height:28px}
+.score .ph h3{font-size:22px}
+.score .ph p{font-size:13.5px;opacity:.95;max-width:none}
+.lane{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--ink);line-height:1.2}
+.lane .ic{width:18px;height:18px;color:var(--tomato)}
+.score i{display:block;height:40px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
+.score i.beat{background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px var(--g)) center/100% 18px no-repeat,var(--card)}
+.score i.end{background:linear-gradient(90deg,var(--card),var(--card)),var(--card);position:relative}
+.score i.end::after{content:"";position:absolute;inset:11px 14px;border-radius:999px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 9px);opacity:.5;mask:linear-gradient(90deg,#000,transparent)}
+.score i.tick{background:repeating-linear-gradient(90deg,var(--tomato) 0 3px,transparent 3px 10px) center/100% 6px no-repeat,var(--tomato-soft);border-color:transparent}
+.score i.none{background:transparent;border-style:dashed}
+@media (max-width:860px){.score{grid-template-columns:minmax(0,1fr)}.score>span,.score i{display:none}.lane{display:none}}
+
 /* 9 */
+.flowhead{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.lanes-wrap{overflow-x:auto;margin:0 -4px;padding:0 4px}
+.lanes{display:grid;grid-template-columns:58px repeat(7,minmax(128px,1fr));gap:10px 12px;min-width:1040px;align-items:start}
+.lanes .lab{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--ink-soft);align-self:center}
+.lanes .shot{margin:0;border-radius:18px;overflow:hidden;background:var(--card);border:1px solid var(--line)}
+.lanes .shot img{width:100%;height:auto;display:block}
+.lanes .shot.soft{aspect-ratio:720/1460;background:var(--tomato-soft);display:grid;place-items:center;border-color:transparent}
+.lanes .cb{background:var(--card);border:1px solid var(--line);border-radius:16px;display:grid;place-items:center;padding:4px 0}
+.lanes .cb svg{width:min(100%,104px);height:auto}
+.lanes .cap b{display:block;font-family:var(--display);font-weight:900;font-size:16px;letter-spacing:-0.02em;line-height:1.1;margin-bottom:3px}
+.lanes .cap b span{color:var(--tomato);margin-right:5px}
+.lanes .cap p{font-size:12.5px;line-height:1.38;color:var(--ink-soft)}
+
 .flow{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px}
 @media (max-width:1100px){.flow{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:620px){.flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -229,16 +258,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-off
 
 <!-- 1 -->
 <section><div class="in">
-  <div class="two cover-grid">
-    <div class="stack-lg">
-      <div class="words-hero">
-        <div><h1>Map.</h1><span>noun</span></div>
-        <div><h1>Extend.</h1><span>verb</span></div>
-        <div><h1 class="red">Panoramic.</h1><span>adjective</span></div>
-      </div>
-      <p class="lead soft">Three randomly generated words, and where they led.</p>
+  <div class="stack-lg">
+    <div class="words-hero">
+      <div><h1>Map.</h1><span>noun</span></div>
+      <div><h1>Extend.</h1><span>verb</span></div>
+      <div><h1 class="red">Panoramic.</h1><span>adjective</span></div>
     </div>
-    <img class="sheet" src="assets/render-clean.jpg" alt="A tomato-red speaker cube with a perforated grille and an olive button, shown from several angles">
+    <p class="lead soft">Three randomly generated words, and where they led.</p>
   </div>
   <div class="meta"><b>Cohesity | Design Assessment</b><span>Atul S · New Media Design · 2025</span></div>
 </div></section>
@@ -279,19 +305,19 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-off
 
 <!-- 4 -->
 <section><div class="in">
-  <h2>What the research says</h2>
+  <h2>Secondary research</h2>
   <div class="two" style="align-items:start">
     <div class="stack-lg">
       <div class="colh rule"><span class="badge sm"><svg class="ic"><use href="#i-hourglass"/></svg></span><h3>Time perception</h3></div>
-      <div class="finding"><span class="badge"><svg class="ic"><use href="#i-clock"/></svg></span><h3>Timing is harder with ADHD.</h3><p class="soft small">Deficits show up across every kind of timing task.</p><span class="cite">Marx et al., 2021, meta-analysis of 55 studies, JAACAP</span></div>
-      <div class="finding"><span class="badge"><svg class="ic"><use href="#i-music"/></svg></span><h3>Music bends time.</h3><p class="soft small">Pleasant music makes time feel shorter, and tempo shifts it most. Tested over seconds, not hours.</p><span class="cite">Droit-Volet et al., 2013, Frontiers in Psychology</span></div>
-      <div class="finding"><span class="badge"><svg class="ic"><use href="#i-wave"/></svg></span><h3>Rhythm carries structure.</h3><p class="soft small">The brain handles tempo, metre and pattern as separate parts of rhythm.</p><span class="cite">Thaut, Trimarchi &amp; Parsons, 2014, Brain Sciences</span></div>
+      <div class="finding"><h3>Timing is harder with ADHD.</h3><p class="soft small">Deficits show up across every kind of timing task.</p><span class="cite">Marx et al., 2021, meta-analysis of 55 studies, JAACAP</span></div>
+      <div class="finding"><h3>Music bends time.</h3><p class="soft small">Pleasant music makes time feel shorter, and tempo shifts it most. Tested over seconds, not hours.</p><span class="cite">Droit-Volet et al., 2013, Frontiers in Psychology</span></div>
+      <div class="finding"><h3>Rhythm carries structure.</h3><p class="soft small">The brain handles tempo, metre and pattern as separate parts of rhythm.</p><span class="cite">Thaut, Trimarchi &amp; Parsons, 2014, Brain Sciences</span></div>
     </div>
     <div class="stack-lg">
       <div class="colh rule"><span class="badge sm"><svg class="ic"><use href="#i-headphones"/></svg></span><h3>Music as an interface</h3></div>
-      <div class="finding"><span class="badge"><svg class="ic"><use href="#i-headphones"/></svg></span><h3>Students with ADHD study to music more.</h3><p class="soft small">They also lean towards more stimulating music than their peers.</p><span class="cite">Lachance, Pelland-Goulet &amp; Gosselin, 2024, Frontiers in Psychology</span></div>
-      <div class="finding"><span class="badge"><svg class="ic"><use href="#i-sliders"/></svg></span><h3>It doesn't help everyone.</h3><p class="soft small">The effect depends on the task, the music and the listener.</p><span class="cite">Cheah et al., 2022, systematic review, Brain Sciences</span></div>
-      <div class="finding"><span class="badge"><svg class="ic"><use href="#i-bell"/></svg></span><h3>Music can carry messages.</h3><p class="soft small">Notifications can be delivered through subtle changes to music people are already listening to.</p><span class="cite">Muranaka, Al-Sada &amp; Nakajima, 2021, ICAD</span></div>
+      <div class="finding"><h3>Students with ADHD study to music more.</h3><p class="soft small">They also lean towards more stimulating music than their peers.</p><span class="cite">Lachance, Pelland-Goulet &amp; Gosselin, 2024, Frontiers in Psychology</span></div>
+      <div class="finding"><h3>It doesn't help everyone.</h3><p class="soft small">The effect depends on the task, the music and the listener.</p><span class="cite">Cheah et al., 2022, systematic review, Brain Sciences</span></div>
+      <div class="finding"><h3>Music can carry messages.</h3><p class="soft small">Notifications can be delivered through subtle changes to music people are already listening to.</p><span class="cite">Muranaka, Al-Sada &amp; Nakajima, 2021, ICAD</span></div>
     </div>
   </div>
   <p class="takeaway">Time is felt, not just read. Music is already in the room, and it can carry information. How much it helps varies, so the design has to stay personal.</p>
@@ -301,20 +327,20 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-off
 <section><div class="in">
   <h2>What already exists</h2>
   <div class="three">
-    <div class="prec"><span class="badge lg"><svg class="ic"><use href="#i-watch"/></svg></span><h3>Takt</h3><p class="soft small">A wearable timepiece co-designed with students with ADHD. A visual countdown plus gentle vibration.</p>
+    <div class="prec"><h3>Takt</h3><p class="soft small">A wearable timepiece co-designed with students with ADHD. A visual countdown plus gentle vibration.</p>
       <div class="row ok"><svg class="ic"><use href="#i-check"/></svg><span><b>Learned</b>Time can be sensed rather than read.</span></div>
       <div class="row gap"><svg class="ic"><use href="#i-alert"/></svg><span><b>Gap</b>Sight and touch only. A steady pulse fades into the background.</span></div>
       <span class="cite">KTH, CHI 2016</span></div>
-    <div class="prec"><span class="badge lg"><svg class="ic"><use href="#i-wave"/></svg></span><h3>Endel</h3><p class="soft small">Generated soundscapes for focus and sleep that adapt to time of day and context.</p>
+    <div class="prec"><h3>Endel</h3><p class="soft small">Generated soundscapes for focus and sleep that adapt to time of day and context.</p>
       <div class="row ok"><svg class="ic"><use href="#i-check"/></svg><span><b>Learned</b>Sound can evolve without turning into alerts.</span></div>
       <div class="row gap"><svg class="ic"><use href="#i-alert"/></svg><span><b>Gap</b>It sets a mood. Its sound doesn't track a session ending.</span></div>
       <span class="cite">endel.io</span></div>
-    <div class="prec"><span class="badge lg"><svg class="ic"><use href="#i-timer"/></svg></span><h3>Time Timer</h3><p class="soft small">A red disc that shrinks as time runs out.</p>
+    <div class="prec"><h3>Time Timer</h3><p class="soft small">A red disc that shrinks as time runs out.</p>
       <div class="row ok"><svg class="ic"><use href="#i-check"/></svg><span><b>Learned</b>Progress is legible at a glance, with no numbers.</span></div>
       <div class="row gap"><svg class="ic"><use href="#i-alert"/></svg><span><b>Gap</b>It still needs the glance, which is what absorbed people stop doing.</span></div>
       <span class="cite">timetimer.com</span></div>
   </div>
-  <p class="takeaway" style="color:var(--ink)">The open space: an object that tells you how far through a session you are, using sound.</p>
+  <p class="takeaway" style="color:var(--ink)">The open space: an object that doesn't just tell you, but lets you feel how far through a session you are, using sound.</p>
 </div></section>
 
 <!-- 6 -->
@@ -340,58 +366,43 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-off
   <div class="prodgrid">
     <div class="stack-lg">
       <h1 style="font-size:clamp(52px,7vw,96px)">tomatone</h1>
-      <p class="lead">A speaker cube that plays your study music and lets the music tell you how far through a session you are. Set it with a few gestures, put your phone away, and work.</p>
+      <p class="tagline">Your playlist, turned into a clock you can hear, and over time, one you can sense.</p>
+      <p class="soft">A speaker cube for studying. Set it with a few gestures, put your phone away, and work.</p>
       <div class="shots"><img class="big" src="assets/photo-palm.jpg" alt="Tomatone resting in an open palm"><img class="inset" src="assets/photo-button.jpg" alt="A finger pressing the olive button on top of Tomatone"></div>
-      <p class="note"><span class="badge sm"><svg class="ic"><use href="#i-phone"/></svg></span>Pick up your phone mid-session and the music dips for a moment. No notification, just a nudge back.</p>
+      <p class="note"><span class="badge sm"><svg class="ic"><use href="#i-timer"/></svg></span><span><b style="color:var(--ink);font-weight:500">Why a tomato?</b> The name, the colour and the kitchen words (Prep, Simmer, Boil, Plate) come from the Pomodoro Technique, named after a tomato-shaped kitchen timer.</span></p>
     </div>
     <div class="gtable" id="gest"></div>
   </div>
 </div></section>
 
 <!-- 8 -->
-<section><div class="in">
+<section class="tight"><div class="in">
   <h2>How time becomes music</h2>
-  <div class="phase">
-    <div style="background:var(--unripe)"><svg class="ic"><use href="#i-sprout"/></svg><div><h3>Prep</h3><p>First 10%. Your own favourite songs.</p></div></div>
-    <div style="background:var(--simmer)"><svg class="ic"><use href="#i-pot"/></svg><div><h3>Simmer</h3><p>The long middle. A steady beat that stays out of your way. Nothing changes for a long while.</p></div></div>
-    <div style="background:var(--tomato)"><svg class="ic"><use href="#i-flame"/></svg><div><h3>Boil</h3><p>Last 25%. Faster, brighter tracks and a soft tick underneath.</p></div></div>
-    <div style="background:var(--tomato-deep)"><svg class="ic"><use href="#i-plate"/></svg><div><h3>Plate</h3><p>A closing track ends on time.</p></div></div>
+  <div class="score">
+    <span></span>
+    <div class="ph" style="background:var(--unripe)"><svg class="ic"><use href="#i-sprout"/></svg><div><h3>Prep</h3><p>First 10%. Your favourite songs.</p></div></div>
+    <div class="ph" style="background:var(--simmer)"><svg class="ic"><use href="#i-pot"/></svg><div><h3>Simmer</h3><p>The long middle. A steady beat that stays out of your way.</p></div></div>
+    <div class="ph" style="background:var(--tomato)"><svg class="ic"><use href="#i-flame"/></svg><div><h3>Boil</h3><p>Last 25%. Faster, brighter tracks.</p></div></div>
+    <div class="ph" style="background:var(--tomato-deep)"><svg class="ic"><use href="#i-plate"/></svg><div><h3>Plate</h3><p>A closing track ends on time.</p></div></div>
+    <b class="lane"><svg class="ic"><use href="#i-music"/></svg>Your music</b>
+    <i class="beat" style="--g:13px"></i><i class="beat" style="--g:11px"></i><i class="beat" style="--g:6px"></i><i class="beat end"></i>
+    <b class="lane"><svg class="ic"><use href="#i-timer"/></svg>Tick, underneath</b>
+    <i class="none"></i><i class="none"></i><i class="tick"></i><i class="none"></i>
   </div>
   <div class="layers">
-    <div class="stack"><span class="badge"><svg class="ic"><use href="#i-music"/></svg></span><h3>1. Your music</h3><p class="soft small">You pick a jar: a few seed songs, or a playlist. Tomatone finds similar tracks. Your songs are never sped up or altered.</p></div>
-    <div class="stack"><span class="badge"><svg class="ic"><use href="#i-bars"/></svg></span><h3>2. Ordered by tempo</h3><p class="soft small">Tracks are sorted so energy rises across the session, and the queue is planned backwards so the last song ends on your deadline.</p></div>
-    <div class="stack"><span class="badge"><svg class="ic"><use href="#i-timer"/></svg></span><h3>3. A tick in the last stretch</h3><p class="soft small">In Boil, a quiet woody tick joins underneath. Speed is the strongest urgency cue in sound, so it gets faster, never louder.<span class="cite">Hellier, Edworthy &amp; Dennis, 1993, Human Factors</span></p></div>
+    <div class="stack"><span class="badge"><svg class="ic"><use href="#i-music"/></svg></span><h3>Layer 1: your music</h3><p class="soft small">Pick a jar: a few seed songs or a playlist. tomatone finds similar tracks and orders them by tempo, so energy rises and the last song ends on your deadline. Songs are never altered.</p></div>
+    <div class="stack"><span class="badge"><svg class="ic"><use href="#i-timer"/></svg></span><h3>Layer 2: a tick underneath</h3><p class="soft small">Only in Boil. A quiet woody tick sits under the music and gets faster, never louder, because speed is the strongest urgency cue in sound.<span class="cite">Hellier, Edworthy &amp; Dennis, 1993, Human Factors</span></p></div>
+    <div class="stack"><span class="badge"><svg class="ic"><use href="#i-flame"/></svg></span><h3>You control the heat</h3><p class="soft small">Tilt the cube left or right to make the cues gentler or stronger. tomatone remembers for next time.</p></div>
   </div>
-  <p class="note"><span class="badge sm"><svg class="ic"><use href="#i-flame"/></svg></span>Too much? Tilt the cube left to turn down the heat. Tomatone remembers for next time.</p>
 </div></section>
 
 <!-- 9 -->
 <section class="tight"><div class="in wide">
-  <div class="stack">
-    <h2 style="max-width:none">Ira has a thesis draft due at 6 pm</h2>
-    <p class="soft">The critical flow: one session, start to finish, across the app and the cube.</p>
+  <div class="flowhead">
+    <h2 style="max-width:none;font-size:clamp(30px,3.4vw,46px)">Ira has a thesis draft due at 6 pm</h2>
+    <a class="btn" href="prototype.html">Try the interactive prototype →</a>
   </div>
-  <div class="flow">
-    <div class="step"><span class="chip"><svg class="ic"><use href="#i-phone"/></svg>App</span>
-      <div class="media"><img src="assets/03-setup.png" alt="Setup screen with a kitchen timer dial"></div>
-      <div><b>Set up</b><p>Names it "Thesis draft", ends 6 pm, picks her jar and sets 90 minutes.</p></div></div>
-    <div class="step"><span class="chip cube"><svg class="ic"><use href="#i-cube"/></svg>Cube</span>
-      <div class="media"><img class="ph" src="assets/photo-desk.jpg" alt="Tomatone set down on a study desk"></div>
-      <div><b>Set it down</b><p>Prep starts. Her own songs play. No clock on screen.</p></div></div>
-    <div class="step"><span class="chip phone"><svg class="ic"><use href="#i-phone"/></svg>Her phone</span>
-      <div class="media soft"><svg viewBox="0 0 100 190" width="82%" fill="none" stroke="#E0391F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="30" y="14" width="40" height="72" rx="8" stroke="#2B1510"/><path d="M44 74h12" stroke="#2B1510"/><path d="M4 140 H34 Q50 140 50 164 Q50 140 66 140 H96" /><path d="M14 124 V156 M86 124 V156" opacity=".35"/></svg></div>
-      <div><b>Picks up her phone</b><p>The music dips softly, then returns when she puts it down.</p></div></div>
-    <div class="step"><span class="chip cube"><svg class="ic"><use href="#i-cube"/></svg>Cube + app</span>
-      <div class="media"><img src="assets/05-boil.png" alt="Boil phase with a red tomato"></div>
-      <div><b>The end approaches</b><p>Faster, brighter tracks and a soft tick. She feels it coming without checking a clock.</p></div></div>
-    <div class="step"><span class="chip cube"><svg class="ic"><use href="#i-cube"/></svg>Cube</span>
-      <div class="media"><img class="ph" src="assets/photo-hand-desk.jpg" style="object-position:42% center" alt="A hand holding Tomatone"><svg class="over" viewBox="0 0 100 190" aria-hidden="true"><path d="M78 40 Q56 12 22 30" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" marker-end="url(#ahw)"/></svg></div>
-      <div><b>Too much? Tilt left</b><p>The heat comes down. Tomatone remembers for next time.</p></div></div>
-    <div class="step"><span class="chip"><svg class="ic"><use href="#i-phone"/></svg>App</span>
-      <div class="media"><img src="assets/06-plate.png" alt="Plate screen asking for a time guess"></div>
-      <div><b>Plate</b><p>She guesses how long it felt, then sees the real time.</p></div></div>
-  </div>
-  <div class="flowfoot"><a class="btn" href="prototype.html">Try the interactive prototype →</a></div>
+  <div class="lanes-wrap"><div class="lanes" id="lanes"></div></div>
 </div></section>
 
 <!-- 10 -->
@@ -464,6 +475,29 @@ const G=[
   ['Double press','Silent mode. The same curve arrives as vibration.',ground+cube()+'<path d="M96 54 q6 10 0 20 M104 50 q9 14 0 28 M22 54 q-6 10 0 20 M14 50 q-9 14 0 28" fill="none" stroke="#E0391F" stroke-width="1.8" stroke-linecap="round"/>']]}
 ];
 document.getElementById('gest').innerHTML=G.map(g=>`<div class="grow"><div class="gh"><span class="badge sm"><svg class="ic"><use href="#i-${g.icon}"/></svg></span>${g.name}</div><div class="gfigs">${g.items.map(i=>`<figure><svg viewBox="0 0 118 112" role="img" aria-label="${i[0]}: ${i[1]}">${i[2]}</svg><figcaption><b>${i[0]}</b>${i[1]}</figcaption></figure>`).join('')}</div></div>`).join('');
+
+/* critical flow: app lane + cube lane */
+(function(){
+ const phone=`<svg viewBox="0 0 100 200" width="80%" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="30" y="30" width="40" height="72" rx="8" stroke="#2B1510" stroke-width="3"/><path d="M44 90h12" stroke="#2B1510" stroke-width="3"/><path d="M38 20 l-6 -8 M50 18 v-10 M62 20 l6 -8" stroke="#E0391F" stroke-width="3"/></svg>`;
+ const dip='<path d="M8 22 H40 Q59 22 59 36 Q59 22 78 22 H110" fill="none" stroke="#E0391F" stroke-width="2" stroke-linecap="round"/>';
+ const tick='<path d="M96 54 v6 M102 52 v10 M108 54 v6" stroke="#E0391F" stroke-width="2" stroke-linecap="round"/>';
+ const C=[
+  ['02-kitchen.png','Kitchen screen with today\'s sessions',ground+cube(),'Her day','The thesis draft is next, due at 6 pm. The cube waits on her desk.'],
+  ['03-setup.png','Setup screen with a kitchen timer dial',ground+cube({dash:1})+cube({t:'translate(0,-12) rotate(-8 59 68)'})+A('M36 22 Q58 4 84 18',1),'Pick it up','Lifting the cube opens setup. She rocks it to 90 minutes and picks her jar.'],
+  ['04-prep.png','Prep phase with a green tomato',ground+cube()+A('M59 4 V28'),'Set it down','Prep starts with her own songs. No clock on screen.'],
+  [null,'',ground+cube()+dip,'Simmer','She picks up her phone. The music dips, and comes back when she puts it down.'],
+  ['05-boil.png','Boil phase with a red tomato',ground+cube({dash:1,t:'rotate(-12 30 92)'})+cube()+A('M24 30 Q56 4 92 24')+tick,'Boil','Faster tracks and a tick. Too much, so she tilts left to lower the heat.'],
+  ['06-plate.png','Plate screen asking for a time guess',ground+cube()+tap,'Plate','The closing track ends on time. She guesses how long it was, then sees.'],
+  ['07-notebook.png','Notebook showing guess accuracy over time',ground+cube({dash:1}),'Notebook','Her guesses get closer over the weeks.']
+ ];
+ const lab=(ic,t)=>`<div class="lab"><span class="badge sm"><svg class="ic"><use href="#i-${ic}"/></svg></span>${t}</div>`;
+ let h=lab('phone','App');
+ h+=C.map(c=>c[0]?`<figure class="shot"><img src="assets/${c[0]}" alt="${c[1]}" loading="lazy"></figure>`:`<figure class="shot soft" aria-label="Ira picks up her phone">${phone}</figure>`).join('');
+ h+=lab('cube','Cube');
+ h+=C.map(c=>`<div class="cb"><svg viewBox="0 0 118 104" aria-hidden="true">${c[2]}</svg></div>`).join('');
+ h+='<span></span>'+C.map((c,i)=>`<div class="cap"><b><span>${i+1}</span>${c[3]}</b><p>${c[4]}</p></div>`).join('');
+ document.getElementById('lanes').innerHTML=h;
+})();
 
 /* navigation */
 const secs=[...document.querySelectorAll('section')],c=document.getElementById('counter'),pv=document.getElementById('prev'),nx=document.getElementById('next'),hint=document.getElementById('keyhint');
