@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tomatone · Atul</title>
+<title>Map, Extend, Panoramic · Atul</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
@@ -11,7 +11,7 @@
 @font-face{font-family:"Satoshi";src:url(assets/Satoshi-Black.otf) format("opentype");font-weight:900;font-display:swap}
 :root{
   --tomato:#E0391F; --tomato-deep:#A9261A; --tomato-soft:#FBE1DA;
-  --stem:#66702B; --stem-soft:#E8EDCD; --unripe:#93B23F; --simmer:#EE8F2A;
+  --stem:#66702B; --unripe:#93B23F; --simmer:#EE8F2A;
   --paper:#FBF3EE; --card:#FFFFFF; --ink:#2B1510; --ink-soft:#7A5B52; --line:#EEDDD5;
   --display:"Satoshi",system-ui,sans-serif;
   --body:"Roboto",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -21,199 +21,304 @@ html{scroll-snap-type:y proximity;scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
 img{max-width:100%;display:block}
 a{color:inherit}
-section{min-height:100vh;scroll-snap-align:start;display:flex;align-items:center;padding:72px max(20px,5vw) 64px;border-bottom:1px solid var(--line);position:relative}
-.in{width:100%;max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
-.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
-.grid.r{grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr)}
-@media (max-width:860px){.grid,.grid.r{grid-template-columns:minmax(0,1fr);gap:28px}}
+section{min-height:100vh;scroll-snap-align:start;display:flex;align-items:center;padding:80px max(20px,6vw) 96px;border-bottom:1px solid var(--line)}
+.in{width:100%;max-width:1160px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+@media (max-width:860px){.two,.three{grid-template-columns:minmax(0,1fr);gap:32px}}
 h1,h2,h3{font-family:var(--display);font-weight:900;letter-spacing:-0.03em;margin:0;text-wrap:balance}
-h1{font-size:clamp(56px,7.4vw,104px);line-height:.9}
-h2{font-size:clamp(32px,4.4vw,56px);line-height:1.02}
+h1{font-size:clamp(56px,9vw,128px);line-height:.92}
+h2{font-size:clamp(34px,4.4vw,58px);line-height:1.02;max-width:20ch}
 h3{font-size:22px;line-height:1.15;letter-spacing:-0.02em}
-p{margin:0;max-width:62ch}
-.eyebrow{font-size:14px;font-weight:500;color:var(--ink-soft)}
-.lead{font-size:clamp(19px,1.8vw,23px);line-height:1.45}
+p{margin:0;max-width:60ch}
+.lead{font-size:clamp(19px,1.7vw,22px);line-height:1.5}
 .soft{color:var(--ink-soft)}
-.small{font-size:14px}
-.cite{font-size:12px;color:var(--ink-soft);margin-top:10px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px}
-.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-@media (max-width:860px){.cards{grid-template-columns:minmax(0,1fr)}}
-.big-quote{font-family:var(--display);font-weight:900;font-size:clamp(28px,3.6vw,46px);line-height:1.08;letter-spacing:-0.03em;color:var(--tomato);max-width:22ch}
-.hmw{background:var(--tomato);color:#fff;border-radius:24px;padding:26px}
-.hmw p.eyebrow{font-family:var(--body);font-weight:500;font-size:14px;letter-spacing:0;margin:0;color:#FFD8CF}
-.hmw p{font-family:var(--display);font-weight:900;font-size:clamp(22px,2.4vw,30px);line-height:1.15;letter-spacing:-0.02em;margin-top:8px}
-.words{display:flex;gap:12px;flex-wrap:wrap}
-.word{border:1.5px solid var(--ink);border-radius:999px;padding:10px 18px;font-family:var(--display);font-weight:900;font-size:20px}
-.word small{font-family:var(--body);font-weight:400;font-size:12px;color:var(--ink-soft);margin-left:6px}
-table{width:100%;border-collapse:collapse;font-size:15px}
-th,td{text-align:left;padding:13px 12px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
-tr.us td{background:var(--tomato-soft);color:var(--tomato-deep);font-weight:500}
-.tw{overflow-x:auto}
-.phase{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-@media (max-width:860px){.phase{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.phase div{border-radius:20px;padding:18px;color:#fff}
-.phase h3{font-size:24px}
-.phase p{font-size:14px;margin-top:6px;opacity:.95}
-.phase span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
-.gest{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-@media (max-width:860px){.gest{grid-template-columns:minmax(0,1fr)}}
-.gest ul{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:15px}
-.gest b{font-weight:500}
-.strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.small{font-size:15px}
+.cite{display:block;font-size:13px;color:var(--ink-soft);margin-top:6px}
+.red{color:var(--tomato)}
+.stack{display:flex;flex-direction:column;gap:14px}
+.stack-lg{display:flex;flex-direction:column;gap:28px}
+.rule{border-top:2px solid var(--ink);padding-top:16px}
+.rule.r{border-color:var(--tomato)}
+
+/* 1 */
+.words-hero{display:flex;flex-direction:column;gap:6px}
+.words-hero div{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}
+.words-hero span{font-size:15px;color:var(--ink-soft)}
+
+/* 2 */
+.assoc{font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.assoc b{color:var(--tomato);font-weight:500}
+.converge{display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:center;background:var(--ink);color:#fff;border-radius:28px;padding:30px 34px}
+.converge h3{font-size:clamp(28px,3.2vw,40px)}
+.converge p{color:#E9D9D2}
+@media (max-width:860px){.converge{grid-template-columns:minmax(0,1fr)}}
+
+/* 3 */
+.hmw{background:var(--tomato);color:#fff;border-radius:28px;padding:34px}
+.hmw p.k{font-size:15px;color:#FFD8CF;margin-bottom:12px}
+.hmw p.q{font-family:var(--display);font-weight:900;font-size:clamp(26px,2.8vw,36px);line-height:1.12;letter-spacing:-0.02em}
+
+/* 4 */
+.finding{display:flex;flex-direction:column;gap:4px}
+.finding h3{font-size:20px}
+.takeaway{font-family:var(--display);font-weight:900;font-size:clamp(26px,3vw,38px);line-height:1.12;letter-spacing:-0.025em;color:var(--tomato);max-width:30ch}
+
+/* 5 */
+.prec{display:flex;flex-direction:column;gap:12px}
+.prec dl{margin:4px 0 0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 12px;font-size:15px}
+.prec dt{color:var(--ink-soft)}
+.prec dd{margin:0}
+
+/* 6 */
+.insight{display:grid;grid-template-columns:48px minmax(0,1fr);gap:4px 16px;align-items:baseline}
+.insight span{font-family:var(--display);font-weight:900;font-size:22px;color:var(--tomato)}
+.principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.principles div{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px}
+@media (max-width:860px){.principles{grid-template-columns:minmax(0,1fr)}}
+
+/* 7 */
+.photos{display:grid;grid-template-columns:1.25fr 1fr;gap:12px}
+.photos img{border-radius:22px;width:100%;height:100%;object-fit:cover}
+.gest{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
+.gest figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:14px 16px 18px;display:flex;flex-direction:column;gap:8px}
+.gest svg{width:100%;height:auto;display:block}
+.gest figcaption b{display:block;font-weight:500}
+.gest figcaption{font-size:14px;line-height:1.4;color:var(--ink-soft)}
+.gest figcaption b{color:var(--ink)}
+.group{font-family:var(--display);font-weight:900;font-size:20px;letter-spacing:-0.02em;grid-column:1/-1;margin-top:8px}
+
+/* 8 */
+.phase{display:grid;grid-template-columns:1fr 6fr 2.5fr 1.3fr;gap:6px}
+.phase div{border-radius:18px;padding:16px;color:#fff;min-height:132px;display:flex;flex-direction:column;justify-content:space-between}
+.phase h3{font-size:20px}
+.phase p{font-size:13px;opacity:.92}
+@media (max-width:860px){.phase{grid-template-columns:minmax(0,1fr)}.phase div{min-height:0;gap:8px}}
+.layers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+@media (max-width:860px){.layers{grid-template-columns:minmax(0,1fr)}}
+
+/* 9 */
+.strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
 @media (max-width:980px){.strip{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.strip figure{margin:0;display:flex;flex-direction:column;gap:8px}
+.strip figure{margin:0;display:flex;flex-direction:column;gap:10px}
 .strip img{border-radius:18px}
-.strip figcaption{font-size:13px;line-height:1.4}
-.strip figcaption b{display:block;font-family:var(--display);font-weight:900;font-size:16px}
-.btn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:#fff;text-decoration:none;padding:16px 22px;border-radius:18px;font-weight:500;align-self:flex-start;transition:transform .16s cubic-bezier(.23,1,.32,1)}
+.strip figcaption{font-size:14px;line-height:1.4;color:var(--ink-soft)}
+.strip figcaption b{display:block;font-family:var(--display);font-weight:900;font-size:17px;color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--tomato);color:#fff;text-decoration:none;padding:16px 22px;border-radius:18px;font-weight:500;align-self:flex-start;transition:transform .16s cubic-bezier(.23,1,.32,1)}
 .btn:active{transform:scale(.97)}
-.btn.red{background:var(--tomato)}
-.stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+
+/* 10 */
+.stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
 @media (max-width:860px){.stages{grid-template-columns:minmax(0,1fr)}}
-.stages div{border-top:3px solid var(--tomato);padding-top:12px}
+.sources{font-size:12px;color:var(--ink-soft);columns:2;column-gap:32px;border-top:1px solid var(--line);padding-top:18px}
+.sources p{margin:0 0 6px;max-width:none;break-inside:avoid}
+@media (max-width:860px){.sources{columns:1}}
+
 .nav{position:fixed;right:max(16px,2vw);bottom:18px;display:flex;align-items:center;gap:4px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px;z-index:5}
 .nav span{font-size:13px;color:var(--ink-soft);padding:0 8px;font-variant-numeric:tabular-nums}
 .nav button{width:38px;height:38px;border-radius:50%;border:0;background:var(--ink);color:#fff;display:grid;place-items:center;cursor:pointer;transition:transform .16s cubic-bezier(.23,1,.32,1),opacity .2s ease}
 .nav button:active{transform:scale(.94)}
 .nav button[disabled]{opacity:.25;cursor:default}
-.nav button:focus-visible{outline:2px solid var(--tomato);outline-offset:2px}
-.keyhint{position:fixed;left:max(20px,5vw);bottom:28px;margin:0;font-size:13px;color:var(--ink-soft);transition:opacity .3s ease;z-index:5}
+.keyhint{position:fixed;left:max(20px,6vw);bottom:30px;margin:0;font-size:13px;color:var(--ink-soft);transition:opacity .3s ease;z-index:5}
 .keyhint.gone{opacity:0;pointer-events:none}
-.render{border-radius:28px;background:#F7EDE8}
-.sources{font-size:12px;color:var(--ink-soft);columns:2;column-gap:32px}
-.sources p{margin-bottom:6px;max-width:none}
-@media (max-width:860px){.sources{columns:1}}
-a:focus-visible,.btn:focus-visible{outline:2px solid var(--tomato);outline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-offset:3px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M1 1L8 5L1 9" fill="none" stroke="#E0391F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker></defs></svg>
 
-<section id="s1"><div class="in grid">
-  <div style="display:flex;flex-direction:column;gap:26px">
-    <h1>tomatone</h1>
-    <p class="lead">A study timer you hear instead of watch. It plays your music and lets the music tell you how much time is left.</p>
-    <div class="words"><span class="word">Map<small>noun</small></span><span class="word">Extend<small>verb</small></span><span class="word">Panoramic<small>adjective</small></span></div>
-    <a class="btn red" href="prototype.html">Open the interactive prototype →</a>
+<!-- 1 -->
+<section><div class="in">
+  <div class="words-hero">
+    <div><h1>Map.</h1><span>noun</span></div>
+    <div><h1>Extend.</h1><span>verb</span></div>
+    <div><h1 class="red">Panoramic.</h1><span>adjective</span></div>
   </div>
-  <img class="render" src="assets/render.jpg" alt="Tomatone, a tomato-red speaker cube with a perforated grille and an olive button on top">
+  <p class="lead soft">Three randomly generated words, and where they led. A design exploration by Atul.</p>
 </div></section>
 
-<section id="s2"><div class="in grid">
-  <div style="display:flex;flex-direction:column;gap:22px">
+<!-- 2 -->
+<section><div class="in">
+  <h2>Unpacking the words</h2>
+  <div class="three">
+    <div class="stack"><h3>Map</h3><p class="assoc">cartography · atlas · territory · navigation · route · coordinates · <b>journey</b> · <b>timeline</b> · sequence · structure · <b>orientation</b> · layout · mental model</p></div>
+    <div class="stack"><h3>Extend</h3><p class="assoc">lengthen · <b>stretch</b> · <b>prolong</b> · expand · enlarge · amplify · <b>augment</b> · reach · continue · broaden · sustain · intensify</p></div>
+    <div class="stack"><h3>Panoramic</h3><p class="assoc">wide-angle · 360° · bird's-eye · overview · immersive · <b>simultaneous</b> · peripheral · horizon · <b>perspective</b> · <b>big picture</b></p></div>
+  </div>
+  <div class="converge">
+    <h3>Time perception</h3>
+    <p>A timeline is a map of time. Augmenting a sense extends it. Seeing the whole session at once is the panoramic view. Together they point at one question: can we make time passing something you feel?</p>
+  </div>
+</div></section>
+
+<!-- 3 -->
+<section><div class="in two">
+  <div class="stack-lg">
     <h2>I sit down to work for twenty minutes. I look up and it's been three hours.</h2>
     <p class="lead soft">Nothing interrupted me. I just never felt the time go. People with ADHD call this time blindness, and most students know a milder version of it. A friend of mine lives with the full version, and watching it up close was frustrating for both of us.</p>
   </div>
-  <div style="display:flex;flex-direction:column;gap:16px">
-    <div class="card"><p class="eyebrow">The three words led here</p><p style="margin-top:10px">A session has a shape you could <b>map</b>. Our sense of time could be <b>extended</b>. And if you could take in the whole session at once, that would be the <b>panoramic</b> view we're missing.</p></div>
-    <div class="hmw"><p class="eyebrow">Problem statement</p><p>How might students feel time passing while they're absorbed in work, so they notice drift before it costs them?</p></div>
-  </div>
+  <div class="hmw"><p class="k">Problem statement</p><p class="q">How might students feel time passing while they're absorbed in work, so they notice drift before it costs them?</p></div>
 </div></section>
 
-<section id="s3"><div class="in">
-  <div class="cards">
-    <div class="card"><h3>Timing is harder with ADHD</h3><p class="soft small" style="margin-top:8px">A meta-analysis of 55 studies found timing deficits across every kind of timing task in people with ADHD.</p><p class="cite">Marx et al., 2021, JAACAP</p></div>
-    <div class="card"><h3>Students work to music</h3><p class="soft small" style="margin-top:8px">84% of students surveyed at UC San Diego listen to music during academic work, at least sometimes. Young adults with ADHD do it even more, and prefer stimulating music.</p><p class="cite">UCSD Public Health, 2025 · Gosselin et al., Frontiers in Psychology</p></div>
-    <div class="card"><h3>Pleasant music shortens time</h3><p class="soft small" style="margin-top:8px">People judge time as shorter while listening to music they like. Tempo has the strongest effect on how long time feels.</p><p class="cite">Droit-Volet et al., 2013, Frontiers in Psychology</p></div>
-  </div>
-  <p class="big-quote">The music students focus to is quietly hiding the time from them.</p>
-  <p class="soft">Every tool on the market asks you to look at a clock. Looking is exactly what you stop doing when you're absorbed.</p>
-</div></section>
-
-<section id="s4"><div class="in">
-  <h2>Plenty of timers. None of them live inside the music.</h2>
-  <div class="tw"><table>
-    <thead><tr><th>Product</th><th>How it signals time</th><th>Where it falls short</th></tr></thead>
-    <tbody>
-      <tr><td><b>Time Timer, Tiimo</b></td><td>A visual countdown</td><td>Only works when you look at it</td></tr>
-      <tr><td><b>Takt (2016), Tikli (2025)</b></td><td>Haptic pulses on the wrist at fixed intervals</td><td>A steady pulse fades into the background</td></tr>
-      <tr><td><b>Endel, Brain.fm</b></td><td>Focus music with a timer beside it</td><td>The music never changes to show time passing</td></tr>
-      <tr><td><b>WonderTimer</b></td><td>A gesture-controlled timer cube</td><td>Silent until the alarm</td></tr>
-      <tr class="us"><td><b>Tomatone</b></td><td>The music you already work to, changing as the deadline nears</td><td>Gets more noticeable as time runs out</td></tr>
-    </tbody>
-  </table></div>
-</div></section>
-
-<section id="s5"><div class="in grid r">
-  <div style="display:flex;flex-direction:column;gap:22px">
-    <h2>Tomatone turns your study playlist into a clock you can hear.</h2>
-    <p class="lead soft">You set a session on the cube, put your phone away, and work. The music settles you in, holds steady, then picks up as the deadline gets close. You know roughly where you are without checking.</p>
-    <div class="card small" style="display:flex;flex-direction:column;gap:8px">
-      <p><b>Built on a habit students already have.</b> Nothing new to remember to check.</p>
-      <p><b>Gets louder in meaning, never in volume.</b> The signal grows as time runs out instead of fading.</p>
-      <p><b>A sense you learn.</b> David Eagleman's work shows the brain learns new signals that change with the world. Here, the world is your deadline.</p>
+<!-- 4 -->
+<section><div class="in">
+  <h2>What the research says</h2>
+  <div class="two" style="align-items:start">
+    <div class="stack-lg">
+      <h3 class="rule">Time perception</h3>
+      <div class="finding"><h3>Timing is harder with ADHD.</h3><p class="soft small">Deficits show up across every kind of timing task.</p><span class="cite">Marx et al., 2021, meta-analysis of 55 studies, JAACAP</span></div>
+      <div class="finding"><h3>Music bends time.</h3><p class="soft small">Pleasant music makes time feel shorter, and tempo shifts it most. Tested over seconds, not hours.</p><span class="cite">Droit-Volet et al., 2013, Frontiers in Psychology</span></div>
+      <div class="finding"><h3>Rhythm carries structure.</h3><p class="soft small">The brain handles tempo, metre and pattern as separate parts of rhythm.</p><span class="cite">Thaut, Trimarchi &amp; Parsons, 2014, Brain Sciences</span></div>
+    </div>
+    <div class="stack-lg">
+      <h3 class="rule">Music as an interface</h3>
+      <div class="finding"><h3>Students with ADHD study to music more.</h3><p class="soft small">They also lean towards more stimulating music than their peers.</p><span class="cite">Lachance, Pelland-Goulet &amp; Gosselin, 2024, Frontiers in Psychology</span></div>
+      <div class="finding"><h3>It doesn't help everyone.</h3><p class="soft small">The effect depends on the task, the music and the listener.</p><span class="cite">Cheah et al., 2022, systematic review, Brain Sciences</span></div>
+      <div class="finding"><h3>Music can carry messages.</h3><p class="soft small">Notifications can be delivered through subtle changes to music people are already listening to.</p><span class="cite">Muranaka, Al-Sada &amp; Nakajima, 2021, ICAD</span></div>
     </div>
   </div>
-  <img src="assets/cube.png" alt="3D model of the Tomatone cube" style="border-radius:24px">
+  <p class="takeaway">Time is felt, not just read. Music is already in the room, and it can carry information. How much it helps varies, so the design has to stay personal.</p>
 </div></section>
 
-<section id="s6"><div class="in">
-  <h2>Every session cooks in four phases.</h2>
-  <div class="phase">
-    <div style="background:var(--unripe)"><span>First 10%</span><h3>Prep</h3><p>Your own favourite songs ease you in.</p></div>
-    <div style="background:var(--simmer)"><span>The long middle</span><h3>Simmer</h3><p>A steady beat that stays out of your way.</p></div>
-    <div style="background:var(--tomato)"><span>Last 25%</span><h3>Boil</h3><p>Faster, brighter tracks, with a soft tick underneath.</p></div>
-    <div style="background:var(--tomato-deep)"><span>The end</span><h3>Plate</h3><p>A closing track that resolves right on time.</p></div>
+<!-- 5 -->
+<section><div class="in">
+  <h2>What already exists</h2>
+  <div class="three">
+    <div class="prec"><h3 class="rule">Takt</h3><p class="soft small">A wearable timepiece co-designed with students with ADHD. A visual countdown plus gentle vibration.</p><dl><dt>Learned</dt><dd>Time can be sensed rather than read.</dd><dt>Gap</dt><dd>Sight and touch only. A steady pulse fades into the background.</dd></dl><span class="cite">KTH, CHI 2016</span></div>
+    <div class="prec"><h3 class="rule">Endel</h3><p class="soft small">Generated soundscapes for focus and sleep that adapt to time of day and context.</p><dl><dt>Learned</dt><dd>Sound can evolve without turning into alerts.</dd><dt>Gap</dt><dd>It sets a mood. Its sound doesn't track a session ending.</dd></dl><span class="cite">endel.io</span></div>
+    <div class="prec"><h3 class="rule">Time Timer</h3><p class="soft small">A red disc that shrinks as time runs out.</p><dl><dt>Learned</dt><dd>Progress is legible at a glance, with no numbers.</dd><dt>Gap</dt><dd>It still needs the glance, which is what absorbed people stop doing.</dd></dl><span class="cite">timetimer.com</span></div>
   </div>
-  <div class="grid" style="align-items:start;gap:28px">
-    <p><b>Why tempo, not volume.</b> In research on warning sounds, speed is the strongest signal of urgency. Louder sounds mostly come across as annoying. So Tomatone speeds up and never gets louder.<span class="cite" style="display:block">Hellier, Edworthy &amp; Dennis, 1993, Human Factors</span></p>
-    <p><b>Your songs aren't altered.</b> Tomatone picks and orders tracks by tempo, then plans the queue backwards so the last song ends on your deadline. If it feels like too much, tilt the cube to turn down the heat.</p>
+  <p class="takeaway" style="color:var(--ink)">The open space: an object that tells you how far through a session you are, using sound.</p>
+</div></section>
+
+<!-- 6 -->
+<section><div class="in two" style="align-items:start">
+  <div class="stack-lg">
+    <h2>From research to design</h2>
+    <div class="insight"><span>01</span><div><h3>Time should be felt, not just measured.</h3><p class="soft small">A number says how much is left. A sensory cue can make the progress itself noticeable.</p></div></div>
+    <div class="insight"><span>02</span><div><h3>The study room already has a soundtrack.</h3><p class="soft small">Use the music students already choose, instead of adding another screen.</p></div></div>
+    <div class="insight"><span>03</span><div><h3>Sound can say more than an alarm.</h3><p class="soft small">Tempo and texture can show progress and urgency long before the end.</p></div></div>
+  </div>
+  <div class="stack-lg">
+    <div class="hmw"><p class="k">Design direction</p><p class="q">Time as a piece of music that changes as the session runs out.</p></div>
+    <div class="principles">
+      <div><h3>Peripheral</h3><p class="soft small">Noticed without asking for attention.</p></div>
+      <div><h3>Learnable</h3><p class="soft small">The same musical language every session.</p></div>
+      <div><h3>Personal</h3><p class="soft small">Your music, and you control how strong the cues are.</p></div>
+    </div>
   </div>
 </div></section>
 
-<section id="s7"><div class="in">
-  <h2>Everything happens on the cube. The phone stays face down.</h2>
-  <div class="gest">
-    <div class="card"><h3>Setting up</h3><ul><li><b>Lift</b> to wake it</li><li><b>Rock forward or back</b> to add or take off 5 minutes. Each rock clicks.</li><li><b>Double tap</b> to hear the total, one chime per 15 minutes</li><li><b>Set it down</b> to start</li></ul></div>
-    <div class="card"><h3>During a session</h3><ul><li><b>Tilt left or right</b> for less or more heat</li><li><b>Shake</b> to swap to another jar of music</li><li><b>Double tap</b> to hear the current pace</li><li><b>Flip over</b> to end early</li></ul></div>
-    <div class="card"><h3>Anytime</h3><ul><li><b>Spin it flat</b> for volume</li><li><b>Hold the button</b> 2 seconds for on and off, 5 to pair</li><li><b>Double press</b> for silent mode, where the same curve arrives as vibration</li></ul></div>
+<!-- 7 -->
+<section><div class="in">
+  <div class="two">
+    <div class="stack-lg">
+      <h1 style="font-size:clamp(56px,8vw,112px)">tomatone</h1>
+      <p class="lead">A speaker cube that plays your study music and lets the music tell you how far through a session you are. Set it with a few gestures, put your phone away, and work.</p>
+    </div>
+    <div class="photos"><img src="assets/photo-palm.jpg" alt="Tomatone resting in an open palm"><img src="assets/photo-button.jpg" alt="A finger pressing the olive button on top of Tomatone"></div>
   </div>
+  <div class="gest" id="gest"></div>
   <p class="soft small">Picking up your phone mid-session dips the music for a moment. No notification, just a nudge back.</p>
 </div></section>
 
-<section id="s8"><div class="in">
-  <h2>Ira has a thesis draft due at 6 pm.</h2>
+<!-- 8 -->
+<section><div class="in">
+  <h2>How time becomes music</h2>
+  <div class="phase">
+    <div style="background:var(--unripe)"><h3>Prep</h3><p>First 10%. Your own favourite songs.</p></div>
+    <div style="background:var(--simmer)"><h3>Simmer</h3><p>The long middle. A steady beat that stays out of your way. Nothing changes for a long while.</p></div>
+    <div style="background:var(--tomato)"><h3>Boil</h3><p>Last 25%. Faster, brighter tracks and a soft tick underneath.</p></div>
+    <div style="background:var(--tomato-deep)"><h3>Plate</h3><p>A closing track ends on time.</p></div>
+  </div>
+  <div class="layers">
+    <div class="stack"><h3 class="rule r">1. Your music</h3><p class="soft small">You pick a jar: a few seed songs, or a playlist. Tomatone finds similar tracks. Your songs are never sped up or altered.</p></div>
+    <div class="stack"><h3 class="rule r">2. Ordered by tempo</h3><p class="soft small">Tracks are sorted so energy rises across the session, and the queue is planned backwards so the last song ends on your deadline.</p></div>
+    <div class="stack"><h3 class="rule r">3. A tick in the last stretch</h3><p class="soft small">In Boil, a quiet woody tick joins underneath. Speed is the strongest urgency cue in sound, so it gets faster, never louder.<span class="cite">Hellier, Edworthy &amp; Dennis, 1993, Human Factors</span></p></div>
+  </div>
+  <p class="soft small">Too much? Tilt the cube left to turn down the heat. Tomatone remembers for next time.</p>
+</div></section>
+
+<!-- 9 -->
+<section><div class="in">
+  <h2>Ira has a thesis draft due at 6 pm</h2>
   <div class="strip">
-    <figure><img src="assets/02-kitchen.png" alt="Kitchen screen with today's sessions"><figcaption><b>Kitchen</b>Her day in order. The thesis is up next.</figcaption></figure>
+    <figure><img src="assets/02-kitchen.png" alt="Kitchen screen showing today's sessions in order"><figcaption><b>Kitchen</b>Her day in order. The thesis is up next.</figcaption></figure>
     <figure><img src="assets/03-setup.png" alt="Setup screen with a kitchen timer dial"><figcaption><b>Set up</b>She turns the dial, or rocks the cube, to 90 minutes.</figcaption></figure>
-    <figure><img src="assets/04-prep.png" alt="Prep phase with a green tomato"><figcaption><b>Prep</b>She sets the cube down. Her own songs play. No clock on screen.</figcaption></figure>
+    <figure><img src="assets/04-prep.png" alt="Prep phase with a green tomato"><figcaption><b>Prep</b>She sets the cube down. Her songs play. No clock on screen.</figcaption></figure>
     <figure><img src="assets/05-boil.png" alt="Boil phase with a red tomato"><figcaption><b>Boil</b>The tracks speed up. She feels the end coming and wraps up.</figcaption></figure>
     <figure><img src="assets/06-plate.png" alt="Plate screen asking for a time guess"><figcaption><b>Plate</b>Before seeing the time, she guesses how long it was.</figcaption></figure>
-    <figure><img src="assets/07-notebook.png" alt="Notebook with guess accuracy over time"><figcaption><b>Notebook</b>Her guesses get closer over the weeks.</figcaption></figure>
+    <figure><img src="assets/07-notebook.png" alt="Notebook showing guess accuracy over time"><figcaption><b>Notebook</b>Her guesses get closer over the weeks.</figcaption></figure>
   </div>
-  <a class="btn red" href="prototype.html">Try it yourself in the prototype →</a>
+  <a class="btn" href="prototype.html">Try the interactive prototype →</a>
 </div></section>
 
-<section id="s9"><div class="in">
-  <h2>The goal is for students to need Tomatone less over time.</h2>
+<!-- 10 -->
+<section><div class="in">
+  <div class="two">
+    <div class="stack-lg">
+      <h2>The goal is to need Tomatone less over time</h2>
+      <p class="lead soft">David Eagleman's work shows people can learn to read information through an unfamiliar sense, if the signal is consistent. Tomatone bets the same is true of a musical language for time. That's a hypothesis to test, not a promise.</p>
+    </div>
+    <img src="assets/photo-desk.jpg" alt="Tomatone on a study desk beside books and a notebook" style="border-radius:24px">
+  </div>
   <div class="stages">
-    <div><h3>Exposure</h3><p class="soft small">The music changes alongside a session of known length.</p></div>
-    <div><h3>Association</h3><p class="soft small">Certain tempos start to mean "nearly done."</p></div>
-    <div><h3>Internalisation</h3><p class="soft small">A better sense of time, possibly even without the cube. This is what the Notebook's guessing game measures.</p></div>
+    <div class="stack"><h3 class="rule r">Exposure</h3><p class="soft small">The music changes alongside a session of known length.</p></div>
+    <div class="stack"><h3 class="rule r">Association</h3><p class="soft small">Certain tempos start to mean "nearly done."</p></div>
+    <div class="stack"><h3 class="rule r">Internalisation</h3><p class="soft small">A better sense of time, maybe even without the cube. The Notebook's guessing game measures this.</p></div>
   </div>
-  <div class="grid" style="align-items:start;gap:28px">
-    <div class="card small"><h3 style="font-size:18px">Assumptions to test</h3><p style="margin-top:8px">People learn the music's cues within a few weeks. Rising tempo creates urgency without anxiety. Third-party tempo data can stand in for Spotify's audio features, which closed to new apps in November 2024.</p></div>
-    <div class="card small"><h3 style="font-size:18px">Next steps</h3><p style="margin-top:8px">Run a two-week study with five students who track their guesses. Partner with an adaptive music engine like Endel so the music itself can change tempo. Compare silent mode with music for people who work in silence.</p></div>
-  </div>
+  <p class="soft small"><b style="color:var(--ink);font-weight:500">Next:</b> a two-week study with five students tracking their guesses, and a partnership with an adaptive music engine so the music itself can change tempo.</p>
   <div class="sources">
+    <p>Cheah, Wong, Spitzer &amp; Coutinho (2022). Background music and cognitive task performance: a systematic review. Brain Sciences.</p>
     <p>Droit-Volet, Ramos, Bueno &amp; Bigand (2013). Music, emotion, and time perception. Frontiers in Psychology.</p>
-    <p>Gosselin et al. Listening habits and subjective effects of background music in young adults with and without ADHD. Frontiers in Psychology.</p>
     <p>Hellier, Edworthy &amp; Dennis (1993). Improving auditory warning design. Human Factors 35(4).</p>
+    <p>Lachance, Pelland-Goulet &amp; Gosselin (2024). Listening habits and subjective effects of background music in young adults with and without ADHD. Frontiers in Psychology.</p>
     <p>Marx, Cortese, Koelch &amp; Hacker (2021). Meta-analysis: altered perceptual timing abilities in ADHD. JAACAP.</p>
-    <p>UC San Diego Public Health capstone (2025). The Mozart Effect: music and academic work.</p>
-    <p>Takt, KTH (CHI 2016) · Tikli, James Dyson Award 2025 · Endel · Brain.fm · WonderTimer · Time Timer · Tiimo.</p>
+    <p>Muranaka, Al-Sada &amp; Nakajima (2021). Proceedings of the 26th International Conference on Auditory Display (ICAD 2021).</p>
+    <p>Thaut, Trimarchi &amp; Parsons (2014). Human brain basis of musical rhythm perception. Brain Sciences.</p>
+    <p>Takt, KTH (CHI 2016) · Endel · Time Timer · Eagleman, sensory substitution.</p>
   </div>
 </div></section>
 
-<nav class="nav" aria-label="Slides"><button id="prev" aria-label="Previous slide"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button><span id="counter" class="num">01 / 09</span><button id="next" aria-label="Next slide"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg></button></nav>
+<nav class="nav" aria-label="Slides"><button id="prev" aria-label="Previous slide"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button><span id="counter">01 / 10</span><button id="next" aria-label="Next slide"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg></button></nav>
 <p class="keyhint" id="keyhint">Use the arrows or your arrow keys</p>
+
 <script>
+/* gesture diagrams: one line-drawn cube, varied by arrows */
+function cube(o){o=o||{};const d=o.dash?' stroke-dasharray="3 3" opacity=".45"':'';const t=o.t||'';
+ let dots='';if(!o.dash)for(let y=0;y<4;y++)for(let x=0;x<4;x++)dots+=`<circle cx="${41+x*7.3}" cy="${57+y*7.3}" r="1.3" fill="#2B1510"/>`;
+ return `<g transform="${t}" fill="none" stroke="#2B1510" stroke-width="1.6" stroke-linejoin="round"${d}>
+  <path d="M30 50 Q30 46 34 46 H70 Q74 46 74 50 V86 Q74 90 70 90 H34 Q30 90 30 86 Z" fill="#fff"/>
+  <path d="M30 48 L44 37 Q46 36 48 36 H84 Q88 36 88 39 L74 48" fill="#fff"/>
+  <path d="M74 48 L88 38 V77 Q88 80 86 82 L73 90" fill="#F3E6E0"/>
+  ${o.dash?'':`<rect x="36" y="52" width="32" height="32" rx="5"/>${dots}<ellipse cx="59" cy="41" rx="5.5" ry="2.2" fill="#2B1510" stroke="none"/>`}
+ </g>`;}
+const A=(d,both)=>`<path d="${d}" fill="none" stroke="#E0391F" stroke-width="2" stroke-linecap="round" marker-end="url(#ah)"${both?' marker-start="url(#ah)"':''}/>`;
+const ground='<line x1="14" y1="96" x2="108" y2="96" stroke="#D9C4BC" stroke-width="1.2"/>';
+const G=[
+ ['Setting up'],
+ ['Lift','Wakes the cube and opens setup.',ground+cube({dash:1})+cube({t:'translate(0,-14)'})+A('M102 78 V44')],
+ ['Rock forward or back','Adds or takes off 5 minutes. Each rock clicks.',ground+cube({dash:1,t:'rotate(14 52 92)'})+cube()+A('M36 26 Q58 8 84 22',1)],
+ ['Double tap','Chimes the total, one chime per 15 minutes.',ground+cube()+'<path d="M50 28 Q59 22 68 28 M45 22 Q59 13 73 22" fill="none" stroke="#E0391F" stroke-width="2" stroke-linecap="round"/>'],
+ ['Set it down','Starts the session.',ground+cube()+A('M59 4 V28')],
+ ['During a session'],
+ ['Tilt left or right','Less or more heat.',ground+cube({dash:1,t:'rotate(-12 30 92)'})+cube()+A('M24 30 Q56 4 92 24',1)],
+ ['Shake','Swaps to another jar of music.',ground+cube()+A('M8 64 H22',1)+A('M96 64 H110',1)+'<path d="M16 50 v8 M16 72 v8 M102 50 v8 M102 72 v8" stroke="#E0391F" stroke-width="1.6" stroke-linecap="round"/>'],
+ ['Double tap','Plays the current pace for two seconds.',ground+cube()+'<path d="M50 28 Q59 22 68 28 M45 22 Q59 13 73 22" fill="none" stroke="#E0391F" stroke-width="2" stroke-linecap="round"/>'],
+ ['Flip over','Ends the session early.',ground+cube({dash:1,t:'rotate(180 59 63)'})+cube()+A('M96 72 Q114 30 70 18 Q40 10 24 34')],
+ ['Anytime'],
+ ['Spin it flat','Turns the volume up or down.',ground+cube()+A('M26 92 Q10 100 30 104 Q60 112 92 104 Q110 98 96 90')],
+ ['Hold the button','2 seconds for on and off, 5 seconds to pair.',ground+cube()+'<circle cx="59" cy="41" r="9" fill="none" stroke="#E0391F" stroke-width="1.8"/><circle cx="59" cy="41" r="15" fill="none" stroke="#E0391F" stroke-width="1.2" opacity=".5"/>'],
+ ['Double press','Silent mode. The same curve arrives as vibration.',ground+cube()+'<path d="M96 54 q6 10 0 20 M104 50 q9 14 0 28 M22 54 q-6 10 0 20 M14 50 q-9 14 0 28" fill="none" stroke="#E0391F" stroke-width="1.8" stroke-linecap="round"/>']
+];
+document.getElementById('gest').innerHTML=G.map(g=>g.length===1?`<p class="group">${g[0]}</p>`:`<figure><svg viewBox="0 0 118 112" role="img" aria-label="${g[0]}: ${g[1]}">${g[2]}</svg><figcaption><b>${g[0]}</b>${g[1]}</figcaption></figure>`).join('');
+
+/* navigation */
 const secs=[...document.querySelectorAll('section')],c=document.getElementById('counter'),pv=document.getElementById('prev'),nx=document.getElementById('next'),hint=document.getElementById('keyhint');
 let cur=0;const pad=n=>String(n).padStart(2,'0');
 function mark(i){cur=i;c.textContent=pad(i+1)+' / '+pad(secs.length);pv.disabled=i===0;nx.disabled=i===secs.length-1;if(i>0)hint.classList.add('gone');}
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)mark(secs.indexOf(e.target));}),{threshold:.5});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)mark(secs.indexOf(e.target));}),{threshold:.35});
 secs.forEach(s=>io.observe(s));
 const goTo=i=>secs[Math.max(0,Math.min(secs.length-1,i))].scrollIntoView();
 pv.onclick=()=>goTo(cur-1);nx.onclick=()=>goTo(cur+1);
