@@ -153,9 +153,11 @@ p{margin:0;max-width:60ch}
 .score i{display:block;height:40px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
 .score i.beat{background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px var(--g)) center/100% 18px no-repeat,var(--card)}
 .score i.end{background:linear-gradient(90deg,var(--card),var(--card)),var(--card);position:relative}
-.score i.end::after{content:"";position:absolute;inset:11px 14px;border-radius:999px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 9px);opacity:.5;mask:linear-gradient(90deg,#000,transparent)}
+.score i.end::after{content:"";position:absolute;inset:11px 14px;border-radius:999px;background:repeating-linear-gradient(90deg,var(--simmer) 0 2px,transparent 2px 9px);opacity:.8;mask:linear-gradient(90deg,#000,transparent)}
 .score i.tick{background:repeating-linear-gradient(90deg,var(--tomato) 0 3px,transparent 3px 10px) center/100% 6px no-repeat,var(--tomato-soft);border-color:transparent}
 .score i.none{background:transparent;border-style:dashed}
+.score i.songs{background:repeating-linear-gradient(90deg,var(--ink-soft) 0 var(--w),transparent var(--w) calc(var(--w) + 5px)) center/100% 14px no-repeat,var(--card);opacity:.9}
+.score i.beat{background:repeating-linear-gradient(90deg,var(--simmer) 0 2px,transparent 2px var(--g)) center/100% 18px no-repeat,var(--card)}
 @media (max-width:860px){.score{grid-template-columns:minmax(0,1fr)}.score>span,.score i{display:none}.lane{display:none}}
 
 /* 9 */
@@ -380,20 +382,23 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-off
   <h2>How time becomes music</h2>
   <div class="score">
     <span></span>
-    <div class="ph" style="background:var(--unripe)"><svg class="ic"><use href="#i-sprout"/></svg><div><h3>Prep</h3><p>First 10%. Your favourite songs.</p></div></div>
-    <div class="ph" style="background:var(--simmer)"><svg class="ic"><use href="#i-pot"/></svg><div><h3>Simmer</h3><p>The long middle. A steady beat that stays out of your way.</p></div></div>
-    <div class="ph" style="background:var(--tomato)"><svg class="ic"><use href="#i-flame"/></svg><div><h3>Boil</h3><p>Last 25%. Faster, brighter tracks.</p></div></div>
-    <div class="ph" style="background:var(--tomato-deep)"><svg class="ic"><use href="#i-plate"/></svg><div><h3>Plate</h3><p>A closing track ends on time.</p></div></div>
+    <div class="ph" style="background:var(--unripe)"><svg class="ic"><use href="#i-sprout"/></svg><div><h3>Prep</h3><p>First 10%. Your favourite songs. The pulse starts slow.</p></div></div>
+    <div class="ph" style="background:var(--simmer)"><svg class="ic"><use href="#i-pot"/></svg><div><h3>Simmer</h3><p>The long middle. The pulse holds steady under the music, easy to ignore.</p></div></div>
+    <div class="ph" style="background:var(--tomato)"><svg class="ic"><use href="#i-flame"/></svg><div><h3>Boil</h3><p>Last 25%. Faster tracks, a faster pulse, and a tick.</p></div></div>
+    <div class="ph" style="background:var(--tomato-deep)"><svg class="ic"><use href="#i-plate"/></svg><div><h3>Plate</h3><p>The closing track and the pulse resolve on time.</p></div></div>
     <b class="lane"><svg class="ic"><use href="#i-music"/></svg>Your music</b>
-    <i class="beat" style="--g:13px"></i><i class="beat" style="--g:11px"></i><i class="beat" style="--g:6px"></i><i class="beat end"></i>
-    <b class="lane"><svg class="ic"><use href="#i-timer"/></svg>Tick, underneath</b>
+    <i class="songs" style="--w:46px"></i><i class="songs" style="--w:40px"></i><i class="songs" style="--w:30px"></i><i class="songs" style="--w:140px"></i>
+    <b class="lane"><svg class="ic"><use href="#i-wave"/></svg>Pulse, underneath</b>
+    <i class="beat" style="--g:16px"></i><i class="beat" style="--g:13px"></i><i class="beat" style="--g:7px"></i><i class="end"></i>
+    <b class="lane"><svg class="ic"><use href="#i-timer"/></svg>Tick</b>
     <i class="none"></i><i class="none"></i><i class="tick"></i><i class="none"></i>
   </div>
   <div class="layers">
-    <div class="stack"><span class="badge"><svg class="ic"><use href="#i-music"/></svg></span><h3>Layer 1: your music</h3><p class="soft small">Pick a jar: a few seed songs or a playlist. tomatone finds similar tracks and orders them by tempo, so energy rises and the last song ends on your deadline. Songs are never altered.</p></div>
-    <div class="stack"><span class="badge"><svg class="ic"><use href="#i-timer"/></svg></span><h3>Layer 2: a tick underneath</h3><p class="soft small">Only in Boil. A quiet woody tick sits under the music and gets faster, never louder, because speed is the strongest urgency cue in sound.<span class="cite">Hellier, Edworthy &amp; Dennis, 1993, Human Factors</span></p></div>
-    <div class="stack"><span class="badge"><svg class="ic"><use href="#i-flame"/></svg></span><h3>You control the heat</h3><p class="soft small">Tilt the cube left or right to make the cues gentler or stronger. tomatone remembers for next time.</p></div>
+    <div class="stack"><span class="badge"><svg class="ic"><use href="#i-music"/></svg></span><h3>Layer 1: your music</h3><p class="soft small">Pick a jar: a few seed songs or a playlist. tomatone finds similar tracks and orders them by tempo, so the last song ends on your deadline. Songs are never altered.</p></div>
+    <div class="stack"><span class="badge"><svg class="ic"><use href="#i-wave"/></svg></span><h3>Layer 2: a pulse underneath</h3><p class="soft small">A quiet beat runs under the music all session. It's easy to tune out, but it's the same every time, so you start to pick it up. It gets faster, never louder.<span class="cite">Speed is the strongest urgency cue in sound: Hellier, Edworthy &amp; Dennis, 1993</span></p></div>
+    <div class="stack"><span class="badge"><svg class="ic"><use href="#i-timer"/></svg></span><h3>Layer 3: a tick in Boil</h3><p class="soft small">In the last stretch, a soft woody tick joins the pulse on the off-beat. It's the clearest sign the end is near.</p></div>
   </div>
+  <p class="note"><span class="badge sm"><svg class="ic"><use href="#i-flame"/></svg></span>Too much, or too subtle? Tilt the cube left or right to change the heat. tomatone remembers for next time.</p>
 </div></section>
 
 <!-- 9 -->
@@ -484,9 +489,9 @@ document.getElementById('gest').innerHTML=G.map(g=>`<div class="grow"><div class
  const C=[
   ['02-kitchen.png','Kitchen screen with today\'s sessions',ground+cube(),'Her day','The thesis draft is next, due at 6 pm. The cube waits on her desk.'],
   ['03-setup.png','Setup screen with a kitchen timer dial',ground+cube({dash:1})+cube({t:'translate(0,-12) rotate(-8 59 68)'})+A('M36 22 Q58 4 84 18',1),'Pick it up','Lifting the cube opens setup. She rocks it to 90 minutes and picks her jar.'],
-  ['04-prep.png','Prep phase with a green tomato',ground+cube()+A('M59 4 V28'),'Set it down','Prep starts with her own songs. No clock on screen.'],
+  ['04-prep.png','Prep phase with a green tomato',ground+cube()+A('M59 4 V28'),'Set it down','Prep starts: her songs, with a quiet pulse underneath. No clock on screen.'],
   [null,'',ground+cube()+dip,'Simmer','She picks up her phone. The music dips, and comes back when she puts it down.'],
-  ['05-boil.png','Boil phase with a red tomato',ground+cube({dash:1,t:'rotate(-12 30 92)'})+cube()+A('M24 30 Q56 4 92 24')+tick,'Boil','Faster tracks and a tick. Too much, so she tilts left to lower the heat.'],
+  ['05-boil.png','Boil phase with a red tomato',ground+cube({dash:1,t:'rotate(-12 30 92)'})+cube()+A('M24 30 Q56 4 92 24')+tick,'Boil','The pulse speeds up and a tick joins. Too much, so she tilts left to lower the heat.'],
   ['06-plate.png','Plate screen asking for a time guess',ground+cube()+tap,'Plate','The closing track ends on time. She guesses how long it was, then sees.'],
   ['07-notebook.png','Notebook showing guess accuracy over time',ground+cube({dash:1}),'Notebook','Her guesses get closer over the weeks.']
  ];

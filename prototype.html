@@ -404,7 +404,7 @@ function gestures(){
   ['Double tap','Chimes the total',()=>{cubeAnim('tap');const n=Math.max(1,Math.round(S.m/15));chimes(n);say(n+' chimes, quickening as they count. One chime per 15 minutes.'+(S.sound?'':' Turn on the sound demo to hear them.'));}],
   ['Set it down','Starts the session',()=>{showLabel('Set down');go('live');say('Prep. Your own seed songs ease you in.');},true]];
  if(S.s==='live')return [
-  ['Time passes','Demo: next phase',()=>{if(S.ph<2){S.ph++;say(S.ph===1?'Simmer. A steady beat that stays out of your way. Nothing changes for a long while.':'Boil. Faster, brighter tracks, plus a soft tick underneath. You feel the end coming without looking.');}else{go('plate');say('Plate. The closing track resolves, right on time.');}},true],
+  ['Time passes','Demo: next phase',()=>{if(S.ph<2){S.ph++;say(S.ph===1?'Simmer. The pulse under your music holds steady. Easy to tune out, but it's always there.':'Boil. Faster tracks, a faster pulse, and a soft tick on the off-beat. You feel the end coming without looking.');}else{go('plate');say('Plate. The closing track resolves, right on time.');}},true],
   ['Shake','Swap jar',()=>{cubeAnim('shake');S.jar=(S.jar+1)%J.length;say('Swapped to '+J[S.jar].n+'. Same phase, same clock.');}],
   ['Tilt left','Less heat',()=>{cubeAnim('left');S.heat=Math.max(1,S.heat-1);say('Heat down to '+HEAT[S.heat-1].toLowerCase()+'. Tomatone remembers this for next time.');}],
   ['Tilt right','More heat',()=>{cubeAnim('right');S.heat=Math.min(3,S.heat+1);say('Heat up to '+HEAT[S.heat-1].toLowerCase()+'.');}],
@@ -467,7 +467,7 @@ document.addEventListener('click',e=>{
    toNotebook:()=>{S.from='kitchen';go('notebook');say('Your guesses, tracked over time.');}
  })[a.dataset.act]?.();
 });
-$('soundBtn').onclick=()=>{S.sound=S0.sound=!S.sound;if(S.sound)actx()?.resume();$('soundBtn').textContent='Sound demo: '+(S.sound?'on':'off');$('soundBtn').classList.toggle('on',S.sound);cubeState();say(S.sound?'Sound on. A low beat stands in for your music, and Boil adds a soft tick on top.':'Sound off.');};
+$('soundBtn').onclick=()=>{S.sound=S0.sound=!S.sound;if(S.sound)actx()?.resume();$('soundBtn').textContent='Sound demo: '+(S.sound?'on':'off');$('soundBtn').classList.toggle('on',S.sound);cubeState();say(S.sound?'Sound on. You're hearing the pulse that sits under your music. It speeds up across the session, and Boil adds a soft tick.':'Sound off.');};
 $('silentBtn').onclick=()=>{S.silent=!S.silent;cubeAnim('silent');$('silentBtn').classList.toggle('on',S.silent);cubeState();say(S.silent?'Silent mode. The same curve arrives as vibrations that quicken.':'Sound mode back on.');};
 $('volBtn').onclick=()=>{S.vol=S.vol>=10?2:S.vol+2;$('vol').textContent=S.vol;cubeAnim('spin');say('Spun flat on the desk. Volume '+S.vol+'.');};
 $('restartBtn').onclick=()=>{stopBeat();S=fresh();$('silentBtn').classList.remove('on');document.getElementById('splash')?.remove();render(false);splash();say('Tap the juice box to open the app.');};
