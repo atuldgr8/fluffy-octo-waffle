@@ -152,11 +152,13 @@ p{margin:0;max-width:60ch}
 .lane .ic{width:18px;height:18px;color:var(--tomato)}
 .score i{display:block;height:40px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
 .score i.beat{background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px var(--g)) center/100% 18px no-repeat,var(--card)}
-.score i.end{background:linear-gradient(90deg,var(--card),var(--card)),var(--card);position:relative}
-.score i.end::after{content:"";position:absolute;inset:11px 14px;border-radius:999px;background:repeating-linear-gradient(90deg,var(--simmer) 0 2px,transparent 2px 9px);opacity:.8;mask:linear-gradient(90deg,#000,transparent)}
 .score i.tick{background:repeating-linear-gradient(90deg,var(--tomato) 0 3px,transparent 3px 10px) center/100% 6px no-repeat,var(--tomato-soft);border-color:transparent}
 .score i.none{background:transparent;border-style:dashed}
-.score i.songs{background:repeating-linear-gradient(90deg,var(--ink-soft) 0 var(--w),transparent var(--w) calc(var(--w) + 5px)) center/100% 14px no-repeat,var(--card);opacity:.9}
+.score i.songs{background:repeating-linear-gradient(90deg,rgba(255,255,255,.4) 0 1px,transparent 1px var(--b)) center/100% 14px no-repeat,repeating-linear-gradient(90deg,var(--c) 0 var(--w),transparent var(--w) calc(var(--w) + 8px)) center/100% 14px no-repeat,var(--card)}
+.score i.close{position:relative;background:var(--card)}
+.score i.close::after{content:"";position:absolute;left:10px;right:10px;top:50%;-webkit-mask:linear-gradient(90deg,#000 30%,transparent);mask:linear-gradient(90deg,#000 30%,transparent)}
+.score i.music::after{height:14px;margin-top:-7px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.4) 0 1px,transparent 1px 10px),#6B4A41}
+.score i.pulse::after{height:18px;margin-top:-9px;background:repeating-linear-gradient(90deg,var(--simmer) 0 2px,transparent 2px 10px)}
 .score i.beat{background:repeating-linear-gradient(90deg,var(--simmer) 0 2px,transparent 2px var(--g)) center/100% 18px no-repeat,var(--card)}
 @media (max-width:860px){.score{grid-template-columns:minmax(0,1fr)}.score>span,.score i{display:none}.lane{display:none}}
 
@@ -387,9 +389,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-off
     <div class="ph" style="background:var(--tomato)"><svg class="ic"><use href="#i-flame"/></svg><div><h3>Boil</h3><p>Last 25%. Faster tracks, a faster pulse, and a tick.</p></div></div>
     <div class="ph" style="background:var(--tomato-deep)"><svg class="ic"><use href="#i-plate"/></svg><div><h3>Plate</h3><p>The closing track and the pulse resolve on time.</p></div></div>
     <b class="lane"><svg class="ic"><use href="#i-music"/></svg>Your music</b>
-    <i class="songs" style="--w:46px"></i><i class="songs" style="--w:40px"></i><i class="songs" style="--w:30px"></i><i class="songs" style="--w:140px"></i>
+    <i class="songs" style="--w:64px;--b:14px;--c:#CDB6AD"></i><i class="songs" style="--w:64px;--b:11px;--c:#A8887D"></i><i class="songs" style="--w:64px;--b:7px;--c:#6B4A41"></i><i class="close music"></i>
     <b class="lane"><svg class="ic"><use href="#i-wave"/></svg>Pulse, underneath</b>
-    <i class="beat" style="--g:16px"></i><i class="beat" style="--g:13px"></i><i class="beat" style="--g:7px"></i><i class="end"></i>
+    <i class="beat" style="--g:16px"></i><i class="beat" style="--g:13px"></i><i class="beat" style="--g:7px"></i><i class="close pulse"></i>
     <b class="lane"><svg class="ic"><use href="#i-timer"/></svg>Tick</b>
     <i class="none"></i><i class="none"></i><i class="tick"></i><i class="none"></i>
   </div>
